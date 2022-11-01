@@ -30,5 +30,6 @@ public class TowerOfHanoi {
             //move top ring from column 1 to column 2: 1 2
             //move top ring from column 1 to column 3: 1 3
             //move top ring from column 2 to column 3: 1 3
+        //first rings go 1 -> 2 -> 3, second rings go 1 -> 3 -> 2
     }
 }
