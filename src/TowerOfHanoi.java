@@ -7,14 +7,23 @@ public class TowerOfHanoi {
         final int input = scanner.nextInt();
         scanner.close();
 
-        print_how_many_moves(input);
+        final int moves = calculatemoves(input);
+        int currentMove = 1;
 
-        // find order of rings?
-        // implement method for each ring?
+        System.out.println(moves);
 
+        while(currentMove <= moves)
+        {
+            printNextHanoiMove(currentMove);
+            currentMove++;
+        }
     }
 
-    private static void print_how_many_moves(int input) {
-        System.out.println(Math.round(Math.pow(2, input) - 1));
+    private static int calculatemoves(int input) {
+        return (int) Math.round(Math.pow(2, input) - 1);
+    }
+
+    private static void printNextHanoiMove(int currentMove) {
+
     }
 }
