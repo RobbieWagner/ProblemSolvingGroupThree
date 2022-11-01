@@ -24,6 +24,11 @@ public class TowerOfHanoi {
     }
 
     private static void printNextHanoiMove(int currentMove) {
-
+        //print the next hanoi move.
+        //print should be the stack you are pulling the top ring from, and then the one you place down.
+        //Ex. input 2, moves are:
+            //move top ring from column 1 to column 2: 1 2
+            //move top ring from column 1 to column 3: 1 3
+            //move top ring from column 2 to column 3: 1 3
     }
 }
