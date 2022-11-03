@@ -7,7 +7,7 @@ public class TowerOfHanoi {
         final int input = scanner.nextInt();
         scanner.close();
 
-        final int moves = calculatemoves(input);
+        final int moves = calculateMoves(input);
         int currentMove = 1;
 
         System.out.println(moves);
@@ -19,7 +19,7 @@ public class TowerOfHanoi {
         }
     }
 
-    private static int calculatemoves(int input) {
+    private static int calculateMoves(int input) {
         return (int) Math.round(Math.pow(2, input) - 1);
     }
 
