@@ -7,11 +7,16 @@ public class TowerOfHanoi {
         final int input = scanner.nextInt();
         scanner.close();
 
-        final int moves = calculateMoves(input);
-        int currentMove = 1;
+        // this is important to know where to start
+        if (input % 2 == 0) {
+            final boolean isEven = true;
+        }
+        else {final boolean isEven = false;}
 
+        final int moves = calculateMoves(input);
         System.out.println(moves);
 
+        int currentMove = 1;
         while(currentMove <= moves)
         {
             printNextHanoiMove(currentMove);
