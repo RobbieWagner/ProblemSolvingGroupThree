@@ -44,31 +44,31 @@ public class TowerOfHanoi {
         int stackTo;
 
         for(int i = 0; i < stacks.length; i++) {
-            if(stacks[i].peek() == 1) {
-                int ringToMove =stacks[i].pop();
+            try {
+                if (stacks[i].peek() == 1) {
+                    int ringToMove = stacks[i].pop();
 
-                if(moveRight && i != 2) {
-                    stackFrom = i;
-                    stackTo = i+1;
-                    stacks[i + 1].push(ringToMove);
+                    if (moveRight && i != 2) {
+                        stackFrom = i;
+                        stackTo = i + 1;
+                        stacks[i + 1].push(ringToMove);
+                    } else if (moveRight) {
+                        stacks[0].push((ringToMove));
+                        stackFrom = i;
+                        stackTo = 0;
+                    } else if (!moveRight && i != 0) {
+                        stackFrom = i;
+                        stackTo = i - 1;
+                        stacks[i - 1].push(ringToMove);
+                    } else {
+                        stackFrom = i;
+                        stackTo = 2;
+                        stacks[2].push(ringToMove);
+                    }
+                    System.out.println((stackFrom + 1) + " " + (stackTo + 1));
+                    return;
                 }
-                else if(moveRight) {
-                    stacks[0].push((ringToMove));
-                    stackFrom = i;
-                    stackTo = 0;
-                }
-                else if(!moveRight && i != 0){
-                    stackFrom = i;
-                    stackTo = i-1;
-                    stacks[-1].push(ringToMove);
-                }
-                else {
-                    stackFrom = i;
-                    stackTo = 2;
-                    stacks[2].push(ringToMove);
-                }
-                System.out.println((stackFrom + 1) + " " + (stackTo + 1));
-                return;
+            } catch (EmptyStackException e) {
             }
         }
     }
@@ -79,12 +79,17 @@ public class TowerOfHanoi {
         int smallestRing = 17;
 
         for(int i = 0; i < stacks.length; i++) {
-            int currentRing = stacks[i].peek();
-            if(currentRing != 1 && currentRing < smallestRing) {
-                smallestRing = currentRing;
-                stackFrom = i;
+            try {
+                int currentRing = stacks[i].peek();
+                if (currentRing != 1 && currentRing < smallestRing) {
+                    smallestRing = currentRing;
+                    if(stackFrom < 3) stackTo = stackFrom;
+                    stackFrom = i;
+                } else if (stacks[i].peek() != 1) stackTo = i;
             }
-            else if(stacks[i].peek() != 1) stackTo = i;
+            catch(EmptyStackException e) {
+                if(stackTo == 3) stackTo = i;
+            }
         }
 
         int ring = stacks[stackFrom].pop();
