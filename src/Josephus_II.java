@@ -28,7 +28,6 @@ public class Josephus_II {
     private static void doJosephus(ArrayList<Integer> kids, int skip_num) {
         int i = skip_num;
         int arr_size = kids.size();
-        ArrayList<Integer> order_to_remove = new ArrayList<>();
 
         while (kids.size() > 0) {
 
@@ -42,7 +41,7 @@ public class Josephus_II {
                 arr_size = kids.size();
             }
             i += skip_num;
-            // Integer removed_kid = kids.remove(i % kids.size());
+
         }
     }
 
