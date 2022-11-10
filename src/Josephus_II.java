@@ -1,5 +1,4 @@
-import java.util.ArrayList;
-import java.util.Scanner;
+import java.util.*;
 
 public class Josephus_II {
     /*Consider a game where there are n children (numbered 1,2,…,n) in a circle. During the game,
