@@ -23,14 +23,14 @@ public class JosephusII {
             if(kids.size() > 1)System.out.print(kids.remove(i % arr_size) + " ");
             else System.out.print(kids.remove(i % arr_size));
 
-            if (i + skip_num > kids.size()) {
+            if (i + skip_num >= kids.size()) {
                 try {
                     i = (i + skip_num) % kids.size();
                 }
                 catch (ArithmeticException ignore) {}
                 arr_size = kids.size();
             }
-            i += skip_num;
+            else i += skip_num;
 
         }
     }
