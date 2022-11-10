@@ -1,6 +1,7 @@
-import java.util.*;
+import java.util.ArrayList;
+import java.util.Scanner;
 
-public class Josephus_II {
+public class JosephusII {
     /*Consider a game where there are n children (numbered 1,2,…,n) in a circle. During the game,
      repeatedly k children are skipped and one child is removed from the circle.
       In which order will the children be removed?
@@ -13,7 +14,7 @@ public class Josephus_II {
     7 2
     Output:
     3 6 2 7 5 1 4*/
-    public static void main(String[] args) {
+        public static void main(String[] args) {
         final Scanner scan = new Scanner(System.in);
 
         final int num_of_kids = scan.nextInt();
@@ -25,7 +26,7 @@ public class Josephus_II {
         doJosephus(kids, skip_num);
     }
 
-    private static void doJosephus(ArrayList<Integer> kids, int skip_num) {
+        private static void doJosephus(ArrayList<Integer> kids, int skip_num) {
         int i = skip_num;
         int arr_size = kids.size();
         ArrayList<Integer> order_to_remove = new ArrayList<>();
@@ -35,15 +36,15 @@ public class Josephus_II {
             System.out.print(kids.remove(i % arr_size) + " ");
 
             if (i + skip_num > kids.size()) {
-                try {
-                    i = (i + skip_num) % kids.size();
-                }
-                catch (ArithmeticException ignore) {}
+                i = i + skip_num % kids.size();
                 arr_size = kids.size();
             }
             i += skip_num;
             // Integer removed_kid = kids.remove(i % kids.size());
         }
-    }
 
+        System.out.println(order_to_remove);
+
+
+    }
 }
