@@ -16,6 +16,8 @@ public class Josephus_II {
     public static void main(String[] args) {
         final Scanner scan = new Scanner(System.in);
 
+        System.out.println(1000000000 % 7);
+
         final int num_of_kids = scan.nextInt();
         final int skip_num = scan.nextInt();
         ArrayList<Integer> kids = new ArrayList<>();
@@ -33,8 +35,10 @@ public class Josephus_II {
 
             System.out.print(kids.remove(i % arr_size) + " ");
 
-            if (i + skip_num > kids.size()) {
+            if (i + skip_num >= kids.size()) {
+
                 try {
+                    i = i % kids.size();
                     i = (i + skip_num) % kids.size();
                 }
                 catch (ArithmeticException ignore) {}
