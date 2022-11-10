@@ -36,16 +36,15 @@ public class Josephus_II {
             System.out.print(kids.remove(i % arr_size) + " ");
 
             if (i + skip_num > kids.size()) {
-                i = i + skip_num % kids.size();
+                try {
+                    i = (i + skip_num) % kids.size();
+                }
+                catch (ArithmeticException ignore) {}
                 arr_size = kids.size();
             }
             i += skip_num;
             // Integer removed_kid = kids.remove(i % kids.size());
         }
-
-        System.out.println(order_to_remove);
-
-
     }
 
 }
