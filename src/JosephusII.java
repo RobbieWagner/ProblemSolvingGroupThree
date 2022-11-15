@@ -15,8 +15,8 @@ public class JosephusII {
     }
 
     private static void doJosephus(ArrayList<Integer> kids, int skip_num) {
-        int i = skip_num;
         int arr_size = kids.size();
+        int i = skip_num % arr_size;
 
         while (kids.size() > 0) {
 
@@ -25,7 +25,7 @@ public class JosephusII {
 
             if (i + skip_num >= kids.size()) {
                 try {
-                    i = (i + skip_num) % kids.size();
+                    i = ((i % kids.size()) + skip_num) % kids.size();
                 }
                 catch (ArithmeticException ignore) {}
                 arr_size = kids.size();
