@@ -17,11 +17,11 @@ public class JosephusII {
     private static void doJosephus(ArrayList<Integer> kids, int skip_num) {
         int arr_size = kids.size();
         int i = skip_num % arr_size;
+        StringBuilder string_to_print = new StringBuilder();
 
         while (kids.size() > 0) {
 
-            if(kids.size() > 1)System.out.print(kids.remove(i % arr_size) + " ");
-            else System.out.print(kids.remove(i % arr_size));
+            string_to_print.append(kids.remove(i % arr_size)).append(" ");
 
             if (i + skip_num >= kids.size()) {
                 try {
@@ -31,7 +31,8 @@ public class JosephusII {
                 arr_size = kids.size();
             }
             else i += skip_num;
-
         }
+        string_to_print.deleteCharAt(string_to_print.length() - 1);
+        System.out.println(string_to_print);
     }
 }
