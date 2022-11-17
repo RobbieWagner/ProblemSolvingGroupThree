@@ -12,6 +12,7 @@ public class JosephusII {
         for (int i = 1; kids.size() < num_of_kids; i++) kids.add(i);
 
         doJosephus(kids, skip_num);
+
     }
 
     private static void doJosephus(ArrayList<Integer> kids, int skip_num) {
