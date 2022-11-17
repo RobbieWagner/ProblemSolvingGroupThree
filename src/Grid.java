@@ -23,6 +23,18 @@ public class Grid {
     }
 
     public boolean canBeTraversed(){
-        return true;
+        int[][] matrix = new int[m][n];
+        initializeMatrix(matrix, m, n);
+
+        return false;
     }
+
+    private void initializeMatrix(int[][] matrix, int x, int y) {
+        for (int i = 0; i < x; i++) {
+            for (int j = 0; j < y; j++) {
+                matrix[i][j] = 0;
+            }
+        }
+    }
+
 }
