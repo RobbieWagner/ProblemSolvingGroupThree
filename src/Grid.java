@@ -21,4 +21,8 @@ public class Grid {
     public String toString(){
         return "m: " + m + "\nn: " + n + "\nStartPos: " + startX + " " + startY + "\nEndPos: " + endX + " " + endY;
     }
+
+    public boolean canBeTraversed(){
+        return true;
+    }
 }
